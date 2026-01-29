@@ -10,10 +10,26 @@ function MainToDoList() {
     const addTask = () => {
         if(inputValue.trim()) //if the inputValue is not null or it has characters
         {
-            setTasks([inputValue, ...tasks]); //function for tasks array or vector in c++ where it pushes elements in it. ...tasks is the elements, inputvalue is the pushback
+            const newTask = {
+                id: Date.now(),
+                text: inputValue,
+                completed: false
+            };
+
+            setTasks([newTask, ...tasks]);
             setInputValue(''); //setting the input value on default affter adding.
         }
     };
+
+    const toggleTask = (id) => {
+        setTasks(tasks.map(task => 
+            task.id === id ? {...task, completed: !task.completed} : task));
+    }
+
+    const deleteTask = (id) => {
+        const upatedTasks = tasks.filter(task => task.id !== id);
+        setTasks(upatedTasks);
+    }
 
   return(
 
@@ -31,7 +47,7 @@ function MainToDoList() {
                 </button>
             </div>
             
-            <DisplayTask tasks = {tasks}/>
+            <DisplayTask tasks = {tasks} toggleTask = {toggleTask} deleteTask ={ deleteTask}/>
 
             <div>
 
@@ -41,14 +57,21 @@ function MainToDoList() {
   )
 }
 
-function DisplayTask({tasks})
+function DisplayTask({tasks, toggleTask, deleteTask})
 {
     return(
         <div className="displayScreen"> 
             <ul id = "taskList">
-                {tasks.map((task, index) => (
-                    <li key = {index}>
-                        {task}
+                {tasks.map(task => (
+                    <li key = {task.id}>
+                        <input type="checkbox" checked = {task.completed} onChange={() => toggleTask(task.id)} className= 'task-check'/>
+                        <span> {task.text} </span>
+                        
+                        {task.completed &&(
+                            <button onClick={() => deleteTask(task.id)} id = "deleteBtn">
+                                delete
+                            </button>
+                        )}
                     </li>
                 ))} 
             </ul>
