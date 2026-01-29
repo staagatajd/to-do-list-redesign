@@ -56,4 +56,4 @@ function DisplayTask({tasks})
     )
 }
 
-export default App
+export default MainToDoList
