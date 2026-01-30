@@ -69,7 +69,7 @@ function DisplayTask({tasks, toggleTask, deleteTask})
                         
                         {task.completed &&(
                             <button onClick={() => deleteTask(task.id)} id = "deleteBtn">
-                                delete
+                                <i className="fa-solid fa-trash"></i>
                             </button>
                         )}
                     </li>

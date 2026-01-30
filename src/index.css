@@ -92,7 +92,49 @@ li
     overflow-wrap: break-word;
 
     border: 1px solid rgba(0, 0, 0, 0.05);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-align: left;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+li span
+{
+    flex: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+input[type="checkbox"] 
+{
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: #04AA6D; 
+  flex-shrink: 0;
+}
+
+input[type="checkbox"]:hover
+{
+    border-color: #368AE0;
+    transform: scale(1.15);
+}
+
+#deleteBtn
+{
+    padding: 8px 12px;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: auto;
+    color: #FF0000;
+}
+
+#deleteBtn:hover
+{
+    transform: scale(1.15);
+    color: #bf0000
+}
