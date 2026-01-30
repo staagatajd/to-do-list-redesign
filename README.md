@@ -8,8 +8,8 @@ This project is currently under development as a part of my Web dev practice and
 - [x] Implemented a scrollable container for long lists.
 
 ## Features To Implement (1/28/26)
-- [ ] **Task Completion:** Add a checkbox that toggles a "Delete" option or strikes through the text.
-- [ ] **Delete Functionality:** Logic to remove specific `<li>` elements from the DOM/State.
+- [x] **Task Completion:** Add a checkbox that toggles a "Delete" option or strikes through the text.
+- [x] **Delete Functionality:** Logic to remove specific `<li>` elements from the DOM/State.
 - [ ] **Persistence:** (Optional) Save tasks so they don't disappear on refresh.
 
 
