@@ -31,6 +31,11 @@ function MainToDoList() {
         setTasks(upatedTasks);
     }
 
+    const deleteAllChecked = () => {
+        const nonCheckedTasks = tasks.filter(task => !task.completed);
+        setTasks(nonCheckedTasks);
+    }
+
   return(
 
     <div className='content'>
@@ -40,7 +45,7 @@ function MainToDoList() {
             </h2>
 
             <div className= 'inputSection'>
-                <input type = "text" id = "taskInput" value = {inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder= "Add new task..."></input>
+                <input type = "text" id = "taskInput" value = {inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={(e) => {if (e.key === 'Enter') addTask(); }} placeholder= "Add new task..."></input>
 
                 <button onClick = {addTask} id='addBtn'>
                     + Add
@@ -50,8 +55,11 @@ function MainToDoList() {
             <DisplayTask tasks = {tasks} toggleTask = {toggleTask} deleteTask ={ deleteTask}/>
 
             <div>
-
+                <button id = "deleteAllButton" onClick={deleteAllChecked}>
+                    Delete All
+                </button>
             </div>
+
         </div>
     </div>
   )
