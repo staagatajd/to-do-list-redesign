@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 function MainToDoList() {
 
-    const [tasks, setTasks] = useState([]); //this creates an array for variable tasks, default value [].
-    const [inputValue, setInputValue] = useState(''); //this sets up the input value to ''. inputvalue as the input, setInputValue as the function/modifier.
+    const [tasks, setTasks] = useState(() => {
+        const savedData = localStorage.getItem("task_list");
+        return savedData ? JSON.parse(savedData) : [];
+    }); 
 
-    //a function for the addBtn, it uses the state that useState created
+    useEffect(() => {
+        localStorage.setItem("task_list", JSON.stringify(tasks));
+    }, [tasks]);
+
+    const [inputValue, setInputValue] = useState(''); 
+
+    
     const addTask = () => {
-        if(inputValue.trim()) //if the inputValue is not null or it has characters
+        if(inputValue.trim()) 
         {
             const newTask = {
                 id: Date.now(),
@@ -17,7 +25,7 @@ function MainToDoList() {
             };
 
             setTasks([newTask, ...tasks]);
-            setInputValue(''); //setting the input value on default affter adding.
+            setInputValue(''); 
         }
     };
 
@@ -71,7 +79,7 @@ function DisplayTask({tasks, toggleTask, deleteTask})
         <div className="displayScreen"> 
             <ul id = "taskList">
                 {tasks.map(task => (
-                    <li key = {task.id}>
+                    <li key = {task.id} className= {`task-item ${task.completed ? 'checked-item' : ''}`}>
                         <input type="checkbox" checked = {task.completed} onChange={() => toggleTask(task.id)} className= 'task-check'/>
                         <span> {task.text} </span>
                         

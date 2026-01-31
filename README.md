@@ -10,7 +10,7 @@ This project is currently under development as a part of my Web dev practice and
 ## Main Features To Implement (1/28/26)
 - [x] **Task Completion:** Add a checkbox that toggles a "Delete" option or strikes through the text.
 - [x] **Delete Functionality:** Logic to remove specific `<li>` elements from the DOM/State.
-- [ ] **Persistence:** (Optional) Save tasks so they don't disappear on refresh.
+- [x] **Persistence:** (Optional) Save tasks so they don't disappear on refresh.
 
 
 ## Tech Stack

@@ -81,13 +81,11 @@ ul
     padding-top: 30px;
     padding-left: 0px;
     list-style-type: none;
-    overflow-y: auto;
-    max-height: 450px;
 }
 
 li
 {
-    width: 550px;
+    width: 545px;
     box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
     background-color: #FEFFFE;
     border-radius: 10px;
@@ -171,4 +169,12 @@ input[type="checkbox"]:hover
 {
     transform: scale(1.02);
     background-color: #9a0101
+}
+
+.checked-item
+{
+    border: 2.5px solid #04AA6D !important;
+    background-color: #f0fff4;
+    box-shadow: 0px 4px 10px rgba(4, 170, 109, 0.25);
+    transition: all 0.05s ease;
 }
